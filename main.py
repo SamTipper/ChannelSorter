@@ -19,12 +19,11 @@ intents.members = True
 
 # Instantiate a discord client
 client = bridge.Bot(command_prefix = '&', help_command=None, intents=intents)
-guilds = []
 
 
 @client.event
 async def on_message(message):
-    if message.guild.id not in guilds:
+    if message.guild.id != GUILD_ID:
         return None
 
     if message.channel.category.id == CAT2_ID:
